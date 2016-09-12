@@ -4,7 +4,7 @@ library("magrittr")  # for pipe
 
 ## create a data frame =====
 # similar to a SAS data step with datalines
-blah_df <- tibble::frame_data(
+blah_df <- tibble::tribble(
   ~id, ~date_var, ~datetime_var, ~double_var1, ~double_var2, ~numeric_var, ~logical_var, ~char_var, ~int_var,
   1L, "2016-01-02", "2016-01-02T11:11:04", "46.41", "68.48", "78.61", "true", 49, "77",
   2L, "2015-12-24", "2015-12-24T08:11:41", "118.11", "-248.99", "593.1", "true", 88, "84",
@@ -73,7 +73,7 @@ str(blah_df_dplyr_mutate)
 #   - The enclosing environment that contains the dataframe that will be
 #     updated and contains a call to invoke_rows to drive iteration.
 # Finally, the function is missing cases to convert to the following types.
-#   The types includes should cover the most simple use cases.
+#   The types included should cover the most simple use cases.
 #   - list
 #   - factor
 #   - raw
@@ -154,7 +154,7 @@ convert_cols <- function(df, types_df) {
 # create a dataframe with columns named col_name and col_type (if you name
 #   them something else you can always use dplyr::rename) with the column
 #   name and the type you would like it converted to
-type_conv_df <- tibble::frame_data(
+type_conv_df <- tibble::tribble(
   ~col_name, ~col_type,
   "date_var", "date",
   "datetime_var", "datetime",
@@ -172,7 +172,7 @@ str(blah_df_custom)
 
 # demonstrate that if you mis-specify a column name, the function won't blow up
 #   but will ignore that column
-type_conv_df_with_missing <- tibble::frame_data(
+type_conv_df_with_missing <- tibble::tribble(
   ~col_name, ~col_type,
   "date_var", "date",
   "datetime_var", "datetime",
