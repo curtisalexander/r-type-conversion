@@ -70,7 +70,7 @@ str(blah_df_dplyr_mutate)
 # convert_cols is a closure that contains two parts.
 #   - An inner function, convert_, that converts a set of columns that are
 #     to be converted to the same type using dmap_at.
-#   - The enclosing enviornment that contains the dataframe that will be
+#   - The enclosing environment that contains the dataframe that will be
 #     updated and contains a call to invoke_rows to drive iteration.
 # Finally, the function is missing cases to convert to the following types.
 #   The types includes should cover the most simple use cases.
